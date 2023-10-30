@@ -11,10 +11,8 @@ fastapi = "^0.104.0"
 pydantic = "^2.4.2"
 pydantic-settings = "^2.0.3"
 uvicorn = {extras = ["standard"], version = "^0.23.2"}
+astroid = "^3.0.1"
 
-
-[tool.poetry.group.dev.dependencies]
-pylint = "^3.0.2"
 
 [build-system]
 requires = ["poetry-core"]
