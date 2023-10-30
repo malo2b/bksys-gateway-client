@@ -17,3 +17,8 @@ poetry install && poetry shell
 ```
 uvicorn bksys-gateway-client:app --reload
 ```
+
+## Lint project
+```
+poetry run flake8
+```
