@@ -11,10 +11,12 @@ from .settings import AppSettings
 
 log = logging.getLogger(__name__)
 
+
 @lru_cache()
 def settings():
     """Depedency injection for settings."""
     return AppSettings()
+
 
 # Initialize FastAPI app
 app = FastAPI()

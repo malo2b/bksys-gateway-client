@@ -8,6 +8,7 @@ log = logging.getLogger(__name__)
 
 router = APIRouter()
 
+
 @router.get("/service-status", tags=["monitoring"])
 async def service_status():
     """Return service status."""
