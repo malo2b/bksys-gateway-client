@@ -5,7 +5,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class AppSettings(BaseSettings):
     """App settings."""
-    OPERAIONS_RULE_HOST: str
+    OPERAIONS_RULE_MS_HOST: str
+    ACCOUNT_MS_HOST: str
+    TRANSACTION_MS_HOST: str
 
     model_config = SettingsConfigDict(env_file=".env")
 
