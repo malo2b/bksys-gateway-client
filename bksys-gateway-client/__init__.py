@@ -1,21 +1,14 @@
 """Initialize client gateway."""
 
 import logging
-from functools import lru_cache
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .routes.monitoring import router as monitoring_router
-from .settings import AppSettings
 
+logging.basicConfig(format='%(levelname)s : %(asctime)s : [%(name)s]: %(message)s', level=logging.INFO)
 log = logging.getLogger(__name__)
-
-
-@lru_cache()
-def settings():
-    """Depedency injection for settings."""
-    return AppSettings()
 
 
 # Initialize FastAPI app
