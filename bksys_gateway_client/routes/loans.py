@@ -6,9 +6,9 @@ from fastapi import APIRouter
 log = logging.getLogger(__name__)
 
 
-router = APIRouter(prefix="/loans")
+router = APIRouter(prefix="/loans", tags=["Loans"])
 
 
-@router.get("/", tags=["loans"])
+@router.get("/")
 async def get_account():
     raise NotImplementedError
