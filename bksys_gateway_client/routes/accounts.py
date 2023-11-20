@@ -1,7 +1,7 @@
 """Accounts routes."""
 
 import logging
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 
 # from ..author import authorize
 from ..schemas.accounts import Account
@@ -18,7 +18,7 @@ async def get_accounts(
     service: AccountService = Depends(),
     # author=Depends(authorize("get-account"))
 ) -> list[Account]:
-    raise NotImplementedError
+    raise HTTPException(status_code=501, detail="Not implemented")
 
 
 @router.get("/{id}")
@@ -27,4 +27,4 @@ async def get_account(
     service: AccountService = Depends(),
     # author=Depends(authorize("get-account")),
 ) -> Account:
-    raise NotImplementedError
+    raise HTTPException(status_code=501, detail="Not implemented")
