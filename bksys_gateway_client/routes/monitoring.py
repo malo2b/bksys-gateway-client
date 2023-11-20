@@ -2,7 +2,7 @@
 
 import asyncio
 import logging
-from fastapi import APIRouter, Depends, HTTPException, Response
+from fastapi import APIRouter, Depends, Response
 from starlette import status
 
 from ..services.operations_rule_service import OperationsRuleService
@@ -18,7 +18,7 @@ router = APIRouter()
 async def service_status():
     """Return service status."""
     log.info("Service status requested.")
-    return Response(status_code=status.HTTP_200_OK)
+    return Response(status_code=status.HTTP_200_OK, content="Service OK")
 
 
 @router.get("/dependencies-status", tags=["monitoring"])
@@ -31,17 +31,13 @@ async def dependencies_status(
 
     log.info("Dependencies status requested.")
 
-    try:
-        asyncio.gather(
+    await asyncio.gather(
             operations_rule_service.health_check(),
             account_service.health_check(),
             transaction_service.health_check(),
         )
-    except HTTPException:
-        log.critical("Operations rule service is not available.")
-        return Response(status_code=status.HTTP_503_SERVICE_UNAVAILABLE)
 
-    return Response(status_code=status.HTTP_200_OK)
+    return Response(status_code=status.HTTP_200_OK, content="Dependencies OK")
 
 
 __all__ = ["router"]
