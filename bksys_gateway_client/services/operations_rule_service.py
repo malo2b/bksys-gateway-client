@@ -39,3 +39,6 @@ class OperationsRuleService:
                     return response.status == 200
             except aiohttp.ClientError:
                 raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE)
+
+
+__all__ = ["OperationsRuleService"]

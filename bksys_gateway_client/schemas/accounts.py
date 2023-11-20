@@ -1,6 +1,14 @@
-from pydantic import BaseModel
+"""Account schemas."""""
+
+from ..helpers.schemas import CamelCasedBaseModel
 
 
-class Account(BaseModel):
+class Account(CamelCasedBaseModel):
+    """Account model."""
     id: str
-    balance: str
+    balance: float
+
+
+class AccountResponse(CamelCasedBaseModel):
+    """Account response."""
+    data: Account

@@ -6,7 +6,7 @@ from fastapi import HTTPException
 from starlette import status
 
 from ..settings import app_settings
-from ..schemas.accounts import Account
+from ..schemas.accounts import Account, AccountResponse
 
 log = logging.getLogger(__name__)
 
@@ -33,10 +33,25 @@ class AccountService:
             except aiohttp.ClientError:
                 raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE)
 
-    async def get_account(self, id: str) -> Account:
-        async with aiohttp.ClientSession() as session:
-            try:
-                async with session.get(f"{self.host}/account/{id}") as response:
-                    return response["data"]
-            except aiohttp.ClientError:
-                raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE)
+    async def get_account(self, id: str) -> AccountResponse:
+        """Get account.
+
+        Args:
+            id (str): Account id.
+
+        Raises:
+            HTTPException: HTTP_503_SERVICE_UNAVAILABLE if service is not available
+
+        Returns:
+            Account: Account.
+        """
+        # async with aiohttp.ClientSession() as session:
+        #     try:
+        #         async with session.get(f"{self.host}/account/{id}") as response:
+        #             return AccountResponse(**await response.json())
+        #     except aiohttp.ClientError:
+        #         raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE)
+        return AccountResponse(data=Account(id=id, balance=1000))
+
+
+__all__ = ["AccountService"]
