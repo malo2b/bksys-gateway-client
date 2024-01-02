@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "bksys-gateway-client"
+name = "bksys_gateway_client"
 version = "0.1.0"
 description = ""
 authors = ["malo.girard <malo.girard@jellysmack.com>"]
@@ -13,6 +13,9 @@ pydantic-settings = "^2.0.3"
 uvicorn = {extras = ["standard"], version = "^0.23.2"}
 astroid = "^3.0.1"
 aiohttp = "^3.8.6"
+circuitbreaker = "^2.0.0"
+prometheus-fastapi-instrumentator = "^6.1.0"
+python-logging-loki = "^0.3.1"
 
 
 [tool.poetry.group.dev.dependencies]

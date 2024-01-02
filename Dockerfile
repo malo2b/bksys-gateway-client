@@ -24,6 +24,6 @@ ENV VIRTUAL_ENV=/app/.venv \
 
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
-COPY bksys-gateway-client ./bksys-gateway-client
+COPY bksys_gateway_client ./bksys_gateway_client
 
-ENTRYPOINT ["uvicorn", "bksys-gateway-client:app", "--host", "0.0.0.0", "--port", "8080", "--limit-max-requests", "50000", "--log-level", "info" ]
+ENTRYPOINT ["uvicorn", "bksys_gateway_client:app", "--host", "0.0.0.0", "--port", "8080", "--limit-max-requests", "50000", "--log-level", "info" ]

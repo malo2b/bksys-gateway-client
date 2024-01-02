@@ -1,4 +1,4 @@
-# bksys-gateway-client
+# bksys_gateway_client
 
 Gateway whose role is to orchestrate different micro-services by carrying business logic
 
@@ -15,7 +15,7 @@ poetry install && poetry shell
 
 ### Run application for development
 ```
-uvicorn bksys-gateway-client:app --reload
+uvicorn bksys_gateway_client:app --reload
 ```
 
 ## Lint project

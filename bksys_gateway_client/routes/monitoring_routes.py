@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends, Response
 from starlette import status
 
 from ..services.operations_rule_service import OperationsRuleService
-from ..services.account_service import AccountService
+from ..services.accounts_service import AccountService
 from ..services.transaction_service import TransactionService
 
 log = logging.getLogger(__name__)
